@@ -5,27 +5,27 @@ const { SelectControl } = wp.components;
 
 registerBlockType( 'spoiler-alert/spoiler-alert', {
 
-    title: "Spoiler Alert",
+    title: 'Spoiler Alert',
 
-    description: "",
+    description: '',
 
-    icon: "hidden",
+    icon: 'hidden',
 
-    category: "common",
+    category: 'common',
 
     attributes: {
         status: {
             type: 'string',
             default: 'none'
         }
-    }
+    },
 
 	edit( { className } ) {
 		return (
             <div>
                 <InspectorControls>
                     <SelectControl
-                        label="Spoiler Level"
+                        label='Spoiler Level'
                         value={ props.attributes.status }
                         options={[
                         { label: 'None', value: 'none' },
