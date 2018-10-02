@@ -5,6 +5,22 @@ const { SelectControl } = wp.components;
 const { __ } = wp.i18n;
 
 /**
+ * Alert type.
+ *
+ * @param {String} type Alert type;
+ */
+function getAlertText( type ) {
+	let message = {
+		none: __( 'Spoiler' ),
+		mild: __( 'Mild Spoiler' ),
+		moderate: __( 'Moderated Spoiler' ),
+		insane: __( 'Insane Spoiler' )
+	};
+
+	return message[ type ];
+}
+
+/**
  * Spoiler alert block.
  */
 registerBlockType( 'spoiler-alert/spoiler-alert', {
@@ -13,7 +29,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
     icon: 'hidden',
     category: 'common',
     attributes: {
-        status: {
+        type: {
             type: 'string',
             default: 'none'
         }
@@ -27,13 +43,13 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	edit( props ) {
 
 		/**
-		 * Update status attribute.
+		 * Update type attribute.
 		 *
-		 * @param {String} newStatus New status value.
+		 * @param {String} newType New type value.
 		 */
-        function updateStatusAttribute( newStatus ) {
+        function updateStatusAttribute( newType ) {
             props.setAttributes({
-                status: newStatus
+                type: newType
             });
         }
 
@@ -42,7 +58,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                 <InspectorControls>
                     <SelectControl
                         label={ __( 'Spoiler Alert' ) }
-                        value={ props.attributes.status }
+                        value={ props.attributes.type }
                         options={[
 							{ label: __( 'None' ), value: 'none' },
 							{ label: __( 'Mild' ), value: 'mild' },
@@ -52,11 +68,12 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         onChange = { updateStatusAttribute }
                     />
                 </InspectorControls>
-                <div className={ 'spoiler-alert is-' + props.attributes.status }>
-                    <InnerBlocks
-                        allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
-                    />
-                </div>
+				<div className={ 'spoiler-alert is-' + props.attributes.type }>
+					<p className='spoiler-alert__message'><span>{ getAlertText( props.attributes.type ) }</span></p>
+					<div className='spoiler-alert__content'>
+						<InnerBlocks allowedBlocks={ [ 'core/image', 'core/paragraph' ] } />
+					</div>
+				</div>
             </div>
 		);
 	},
@@ -67,20 +84,9 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	 * @param {Object} props Properties.
 	 */
 	save( props ) {
-		function getAlertText( status ) {
-			let message = {
-				none: __( 'Spoiler' ),
-				mild: __( 'Mild Spoiler' ),
-				moderate: __( 'Moderated Spoiler' ),
-				insane: __( 'Insane Spoiler' )
-			};
-
-			return message[ status ];
-		}
-
 		return (
-			<div className={ 'spoiler-alert is-' + props.attributes.status }>
-				<p className='spoiler-alert__message'><i></i> { getAlertText( props.attributes.status ) }</p>
+			<div className={ 'spoiler-alert is-' + props.attributes.type }>
+				<p className='spoiler-alert__message'><span>{ getAlertText( props.attributes.type ) }</span></p>
 				<p className='spoiler-alert__expander'>
 					<button>{ __( 'Click to reveal' ) }</button>
 				</p>

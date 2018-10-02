@@ -3,22 +3,42 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/spoiler-alert.js:44
+#: src/blocks/spoiler-alert.js:14
+msgid "Spoiler"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:15
+msgid "Mild Spoiler"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:16
+msgid "Moderated Spoiler"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:17
+msgid "Insane Spoiler"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:60
 msgid "Spoiler Alert"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:47
+#: src/blocks/spoiler-alert.js:63
 msgid "None"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:48
+#: src/blocks/spoiler-alert.js:64
 msgid "Mild"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:49
+#: src/blocks/spoiler-alert.js:65
 msgid "Moderate"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:50
+#: src/blocks/spoiler-alert.js:66
 msgid "Insane"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:91
+msgid "Click to reveal"
 msgstr ""
