@@ -29,3 +29,12 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+define( 'SPOILER_ALERT_VERSION', '0.0.1' );
+define( 'SPOILER_ALERT_PLUGIN_FILE', __FILE__ );
+
+if ( ! class_exists( 'Spoiler_Alert' ) ) {
+	include_once dirname( __FILE__ ) . '/includes/class-spoiler-alert.php';
+
+	add_action( 'plugins_loaded', array( 'WC_CoSpoiler_Alertrreios', 'init' ) );
+}
