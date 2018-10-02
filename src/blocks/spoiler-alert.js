@@ -16,7 +16,9 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	edit( { className } ) {
 		return (
 			<div className={ className }>
-				<InnerBlocks />
+				<InnerBlocks
+					allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
+				/>
 			</div>
 		);
 	},
