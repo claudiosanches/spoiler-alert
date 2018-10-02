@@ -1,2 +1,3 @@
 // Blocks
-import './blocks/spoiler-alert'
+import './style.css';
+import './blocks/spoiler-alert';
