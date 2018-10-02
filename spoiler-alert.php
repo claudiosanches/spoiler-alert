@@ -3,8 +3,8 @@
  * Plugin Name: Spoiler Alert
  * Plugin URI:  https://github.com/claudiosanches/spoiler-alert
  * Description: Adds a spoiler alert into Gutenberg block
- * Author:      Claudio Sanches
- * Author URI:  https://claudiosanches.com
+ * Author:      Claudio Sanches, Rossana Menezes, Alisa Owens, Lauren Smith
+ * Author URI:  https://github.com/claudiosanches/spoiler-alert
  * Version:     0.0.1
  * License:     GPLv3
  * Text Domain: spoiler-alert
