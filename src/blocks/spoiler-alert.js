@@ -41,7 +41,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
             <div>
                 <InspectorControls>
                     <SelectControl
-                        label='Spoiler Level'
+                        label={ __( 'Spoiler Alert' ) }
                         value={ props.attributes.status }
                         options={[
 							{ label: __( 'None' ), value: 'none' },
