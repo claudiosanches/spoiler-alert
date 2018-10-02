@@ -3,6 +3,9 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
 
+/**
+ * Spoiler alert block.
+ */
 registerBlockType( 'spoiler-alert/spoiler-alert', {
     title: 'Spoiler Alert',
     description: '',
@@ -15,10 +18,21 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
         }
     },
 
+	/**
+	 * Block edit.
+	 *
+	 * @param {Object} props Properties.
+	 */
 	edit( props ) {
-        function updateStatusAttribute( newVal ) {
+
+		/**
+		 * Update status attribute.
+		 *
+		 * @param {String} newStatus New status value.
+		 */
+        function updateStatusAttribute( newStatus ) {
             props.setAttributes({
-                status: newVal
+                status: newStatus
             });
         }
 
@@ -29,10 +43,10 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         label='Spoiler Level'
                         value={ props.attributes.status }
                         options={[
-                        { label: 'None', value: 'none' },
-                        { label: 'Mild', value: 'mild' },
-                        { label: 'Moderate', value: 'moderate' },
-                        { label: 'Insane', value: 'insane' }
+							{ label: 'None', value: 'none' },
+							{ label: 'Mild', value: 'mild' },
+							{ label: 'Moderate', value: 'moderate' },
+							{ label: 'Insane', value: 'insane' }
                         ]}
                         onChange = { updateStatusAttribute }
                     />
@@ -46,6 +60,11 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 		);
 	},
 
+	/**
+	 * Save block content.
+	 *
+	 * @param {Object} props Properties.
+	 */
 	save( props ) {
 		return (
 			<div className={ 'spoiler-alert is-' + props.attributes.status }>
