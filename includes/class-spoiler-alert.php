@@ -17,6 +17,7 @@ class Spoiler_Alert {
 	 */
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register_blocks' ) );
+		add_action( 'init', array( __CLASS__, 'load_textdomain' ) );
 	}
 
 	/**
@@ -36,5 +37,12 @@ class Spoiler_Alert {
 		);
 
 		register_block_type( 'spoiler-alert/spoiler-alert', array( 'editor_script' => 'spoiler-alert' ) );
+	}
+
+	/**
+	 * Load textdomain.
+	 */
+	public static function load_textdomain() {
+		load_plugin_textdomain( 'spoiler-alert', false, dirname( plugin_basename( SPOILER_ALERT_PLUGIN_FILE ) ) . '/languages' );
 	}
 }

@@ -2,12 +2,13 @@ const { createElement } = wp.element;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
+const { __ } = wp.i18n;
 
 /**
  * Spoiler alert block.
  */
 registerBlockType( 'spoiler-alert/spoiler-alert', {
-    title: 'Spoiler Alert',
+    title: __( 'Spoiler Alert', 'spoiler-alert' ),
     description: '',
     icon: 'hidden',
     category: 'common',
@@ -43,10 +44,10 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         label='Spoiler Level'
                         value={ props.attributes.status }
                         options={[
-							{ label: 'None', value: 'none' },
-							{ label: 'Mild', value: 'mild' },
-							{ label: 'Moderate', value: 'moderate' },
-							{ label: 'Insane', value: 'insane' }
+							{ label: __( 'None', 'spoiler-alert' ), value: 'none' },
+							{ label: __( 'Mild', 'spoiler-alert' ), value: 'mild' },
+							{ label: __( 'Moderate', 'spoiler-alert' ), value: 'moderate' },
+							{ label: __( 'Insane', 'spoiler-alert' ), value: 'insane' }
                         ]}
                         onChange = { updateStatusAttribute }
                     />

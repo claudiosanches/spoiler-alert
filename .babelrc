@@ -1,5 +1,17 @@
 {
 	"presets": [
 		"@wordpress/default"
-	]
+	],
+	"env": {
+		"production": {
+			"plugins": [
+				[
+					"@wordpress/babel-plugin-makepot",
+					{
+						"output": "languages/spoiler-alert.pot"
+					}
+				]
+			]
+		}
+	}
 }
