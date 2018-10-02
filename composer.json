@@ -1,0 +1,36 @@
+{
+	"name": "claudiosanches/spoiler-alert",
+	"description": "Adds a spoiler alert block into Gutenberg Editor.",
+	"homepage": "https://github.com/claudiosanches/spoiler-alert",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "Claudio Sanches",
+			"homepage": "https://claudiosanches.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"forum": "https://wordpress.org/support/plugin/spoiler-alert",
+		"issues": "https://github.com/claudiosanches/spoiler-alert/issues/",
+		"source": "https://github.com/claudiosanches/spoiler-alert"
+	},
+	"require": {
+		"claudiosanches/wp-git-hooks": "^1.3"
+	},
+	"scripts": {
+		"pre-update-cmd": [
+			"ClaudioSanches\\WpGitHooks\\Hooks::preHooks"
+		],
+		"pre-install-cmd": [
+			"@pre-update-cmd"
+		],
+		"post-install-cmd": [
+			"ClaudioSanches\\WpGitHooks\\Hooks::postHooks"
+		],
+		"post-update-cmd": [
+			"@post-install-cmd"
+		]
+	}
+}
