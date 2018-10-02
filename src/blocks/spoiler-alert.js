@@ -3,6 +3,8 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
 
+import './style.css';
+
 /**
  * Spoiler alert block.
  */

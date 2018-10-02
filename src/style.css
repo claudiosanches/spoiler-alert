@@ -1,0 +1,11 @@
+.is-mild {
+    background: green;
+}
+
+.is-moderate {
+    background: yellow;
+}
+
+.is-insane {
+    background: red;
+}
