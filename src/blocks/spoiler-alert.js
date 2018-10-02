@@ -13,13 +13,35 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 
     category: "common",
 
+    attributes: {
+        status: {
+            type: 'string',
+            default: 'none'
+        }
+    }
+
 	edit( { className } ) {
 		return (
-			<div className={ className }>
-				<InnerBlocks
-					allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
-				/>
-			</div>
+            <div>
+                <InspectorControls>
+                    <SelectControl
+                        label="Spoiler Level"
+                        value={ props.attributes.status }
+                        options={[
+                        { label: 'None', value: 'none' },
+                        { label: 'Mild', value: 'mild' },
+                        { label: 'Moderate', value: 'moderate' },
+                        { label: 'Insane', value: 'insane' }
+                        ]}
+                        onChange = { updateStatusAttribute }
+                    />
+                </InspectorControls>
+                <div className={ className }>
+                    <InnerBlocks
+                        allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
+                    />
+                </div>
+            </div>
 		);
 	},
 
