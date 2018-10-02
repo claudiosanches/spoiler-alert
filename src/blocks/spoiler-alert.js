@@ -5,6 +5,13 @@ const { SelectControl } = wp.components;
 
 registerBlockType( 'spoiler-alert/spoiler-alert', {
 
+    title: "Spoiler Alert",
+
+    description: "",
+
+    icon: "hidden",
+
+    category: "common",
 
 	edit( { className } ) {
 		return (
