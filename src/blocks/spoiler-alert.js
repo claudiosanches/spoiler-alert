@@ -1,6 +1,6 @@
 const { createElement } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks } = wp.editor;
+const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
 
 registerBlockType( 'spoiler-alert/spoiler-alert', {
@@ -20,7 +20,14 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
         }
     },
 
-	edit( { className } ) {
+	edit( props ) {
+
+        function updateStatusAttribute( newVal ) {
+            props.setAttributes({
+                status: newVal
+            });
+        }
+
 		return (
             <div>
                 <InspectorControls>
@@ -36,7 +43,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         onChange = { updateStatusAttribute }
                     />
                 </InspectorControls>
-                <div className={ className }>
+                <div className={ props.attributes.status }>
                     <InnerBlocks
                         allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
                     />
