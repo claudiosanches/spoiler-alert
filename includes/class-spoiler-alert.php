@@ -36,7 +36,16 @@ class Spoiler_Alert {
 			false
 		);
 
-		register_block_type( 'spoiler-alert/spoiler-alert', array( 'editor_script' => 'spoiler-alert' ) );
+		wp_register_style(
+			'spoiler-alert',
+			plugins_url( 'src/style.css', SPOILER_ALERT_PLUGIN_FILE ),
+			array()
+		);
+
+		register_block_type( 'spoiler-alert/spoiler-alert', array(
+			'editor_script' => 'spoiler-alert',
+			'style' =>  'spoiler-alert'
+		) );
 	}
 
 	/**

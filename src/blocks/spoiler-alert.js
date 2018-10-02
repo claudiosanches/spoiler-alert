@@ -4,6 +4,8 @@ const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
 const { __ } = wp.i18n;
 
+import './style.css';
+
 /**
  * Spoiler alert block.
  */
