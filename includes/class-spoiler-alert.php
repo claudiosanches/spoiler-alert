@@ -30,7 +30,7 @@ class Spoiler_Alert {
 		wp_register_script(
 			'spoiler-alert',
 			plugins_url( 'dist/index.js', SPOILER_ALERT_PLUGIN_FILE ),
-			array( 'wp-block' ),
+			array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-components' ),
 			SPOILER_ALERT_VERSION,
 			false
 		);
