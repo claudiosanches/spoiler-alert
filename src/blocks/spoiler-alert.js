@@ -67,9 +67,26 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	 * @param {Object} props Properties.
 	 */
 	save( props ) {
+		function getAlertText( status ) {
+			let message = {
+				none: __( 'Spoiler' ),
+				mild: __( 'Mild Spoiler' ),
+				moderate: __( 'Moderated Spoiler' ),
+				insane: __( 'Insane Spoiler' )
+			};
+
+			return message[ status ];
+		}
+
 		return (
 			<div className={ 'spoiler-alert is-' + props.attributes.status }>
-				<InnerBlocks.Content />
+				<p className='spoiler-alert__message'><i></i> { getAlertText( props.attributes.status ) }</p>
+				<p className='spoiler-alert__expander'>
+					<button>{ __( 'Click to reveal' ) }</button>
+				</p>
+				<div className='spoiler-alert__content'>
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		);
 	}

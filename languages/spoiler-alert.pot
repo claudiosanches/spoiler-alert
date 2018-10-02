@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/spoiler-alert.js:11
+#: src/blocks/spoiler-alert.js:44
 msgid "Spoiler Alert"
 msgstr ""
 

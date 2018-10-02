@@ -16,8 +16,16 @@ class Spoiler_Alert {
 	 * Init class.
 	 */
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'register_blocks' ) );
 		add_action( 'init', array( __CLASS__, 'load_textdomain' ) );
+		add_action( 'init', array( __CLASS__, 'register_blocks' ) );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'frontend_scripts' ) );
+	}
+
+	/**
+	 * Load textdomain.
+	 */
+	public static function load_textdomain() {
+		load_plugin_textdomain( 'spoiler-alert', false, dirname( plugin_basename( SPOILER_ALERT_PLUGIN_FILE ) ) . '/languages' );
 	}
 
 	/**
@@ -54,9 +62,15 @@ class Spoiler_Alert {
 	}
 
 	/**
-	 * Load textdomain.
+	 * Frontend scripts.
 	 */
-	public static function load_textdomain() {
-		load_plugin_textdomain( 'spoiler-alert', false, dirname( plugin_basename( SPOILER_ALERT_PLUGIN_FILE ) ) . '/languages' );
+	public static function frontend_scripts() {
+		wp_enqueue_script(
+			'spoiler-alert-frontend',
+			plugins_url( 'assets/js/spoiler-alert.js', SPOILER_ALERT_PLUGIN_FILE ),
+			array( 'jquery' ),
+			SPOILER_ALERT_VERSION,
+			true
+		);
 	}
 }

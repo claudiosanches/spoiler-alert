@@ -1,11 +1,15 @@
-.is-mild {
+.wp-block-spoiler-alert-spoiler-alert .spoiler-alert__content {
+	display: none;
+}
+
+.is-mild .spoiler-alert__content {
     background: green;
 }
 
-.is-moderate {
+.is-moderate .spoiler-alert__content {
     background: yellow;
 }
 
-.is-insane {
+.is-insane .spoiler-alert__content {
     background: red;
 }
