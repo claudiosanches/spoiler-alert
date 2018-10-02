@@ -1,0 +1,22 @@
+{
+	"name": "spoiler-alert",
+	"version": "0.0.1",
+	"description": "Adds a spoiler alert into Gutenberg block",
+	"main": "src/index.js",
+	"private": true,
+	"scripts": {
+		"start": "parcel watch src/index.js",
+		"build": "parcel build src/index.js"
+	},
+	"keywords": [
+		"wordpress",
+		"plugin",
+		"javascript"
+	],
+	"devDependencies": {
+		"@babel/core": "^7.1.0",
+		"@wordpress/babel-preset-default": "^2.1.0",
+		"eslint": "^5.6.1",
+		"parcel-bundler": "^1.10.1"
+	}
+}
