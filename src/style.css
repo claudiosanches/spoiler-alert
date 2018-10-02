@@ -2,14 +2,37 @@
 	display: none;
 }
 
-.is-mild .spoiler-alert__content {
-    background: green;
+.spoiler-alert__message span {
+	display: block;
+	padding: 6px 0 0 45px;
+	position: relative;
 }
 
-.is-moderate .spoiler-alert__content {
-    background: yellow;
+.spoiler-alert__message span::before {
+	background-repeat: no-repeat;
+	background-size: 40px;
+	content: " ";
+	display: block;
+	float: left;
+	height: 40px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 40px;
 }
 
-.is-insane .spoiler-alert__content {
-    background: red;
+.is-mild .spoiler-alert__message span::before {
+	background-image: url("../assets/images/mind-alert.png");
+}
+
+.is-moderate .spoiler-alert__message span::before {
+	background-image: url("../assets/images/moderate-alert.png");
+}
+
+.is-insane .spoiler-alert__message span::before {
+	background-image: url("../assets/images/insane-alert.png");
+}
+
+.spoiler-alert__expander {
+	text-align: center;
 }
