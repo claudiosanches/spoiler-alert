@@ -10,7 +10,7 @@ import './style.css';
  * Spoiler alert block.
  */
 registerBlockType( 'spoiler-alert/spoiler-alert', {
-    title: __( 'Spoiler Alert', 'spoiler-alert' ),
+    title: __( 'Spoiler Alert' ),
     description: '',
     icon: 'hidden',
     category: 'common',
@@ -46,10 +46,10 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         label='Spoiler Level'
                         value={ props.attributes.status }
                         options={[
-							{ label: __( 'None', 'spoiler-alert' ), value: 'none' },
-							{ label: __( 'Mild', 'spoiler-alert' ), value: 'mild' },
-							{ label: __( 'Moderate', 'spoiler-alert' ), value: 'moderate' },
-							{ label: __( 'Insane', 'spoiler-alert' ), value: 'insane' }
+							{ label: __( 'None' ), value: 'none' },
+							{ label: __( 'Mild' ), value: 'mild' },
+							{ label: __( 'Moderate' ), value: 'moderate' },
+							{ label: __( 'Insane' ), value: 'insane' }
                         ]}
                         onChange = { updateStatusAttribute }
                     />

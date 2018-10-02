@@ -3,22 +3,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/spoiler-alert.js:11
+#: src/blocks/spoiler-alert.js:13
 msgid "Spoiler Alert"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:47
+#: src/blocks/spoiler-alert.js:49
 msgid "None"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:48
+#: src/blocks/spoiler-alert.js:50
 msgid "Mild"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:49
+#: src/blocks/spoiler-alert.js:51
 msgid "Moderate"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:50
+#: src/blocks/spoiler-alert.js:52
 msgid "Insane"
 msgstr ""

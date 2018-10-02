@@ -38,14 +38,19 @@ class Spoiler_Alert {
 
 		wp_register_style(
 			'spoiler-alert',
-			plugins_url( 'src/style.css', SPOILER_ALERT_PLUGIN_FILE ),
-			array()
+			plugins_url( 'dist/index.css', SPOILER_ALERT_PLUGIN_FILE ),
+			array(),
+			SPOILER_ALERT_VERSION,
+			'all'
 		);
 
-		register_block_type( 'spoiler-alert/spoiler-alert', array(
-			'editor_script' => 'spoiler-alert',
-			'style' =>  'spoiler-alert'
-		) );
+		register_block_type(
+			'spoiler-alert/spoiler-alert',
+			array(
+				'editor_script' => 'spoiler-alert',
+				'style'         => 'spoiler-alert',
+			)
+		);
 	}
 
 	/**
