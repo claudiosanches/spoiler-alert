@@ -4,15 +4,10 @@ const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl } = wp.components;
 
 registerBlockType( 'spoiler-alert/spoiler-alert', {
-
     title: 'Spoiler Alert',
-
     description: '',
-
     icon: 'hidden',
-
     category: 'common',
-
     attributes: {
         status: {
             type: 'string',
@@ -21,7 +16,6 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
     },
 
 	edit( props ) {
-
         function updateStatusAttribute( newVal ) {
             props.setAttributes({
                 status: newVal
@@ -43,7 +37,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         onChange = { updateStatusAttribute }
                     />
                 </InspectorControls>
-                <div className={ props.attributes.status }>
+                <div className={ 'spoiler-alert is-' + props.attributes.status }>
                     <InnerBlocks
                         allowedBlocks={ [ 'core/image', 'core/paragraph' ] }
                     />
@@ -52,9 +46,9 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 		);
 	},
 
-	save() {
+	save( props ) {
 		return (
-			<div>
+			<div className={ 'spoiler-alert is-' + props.attributes.status }>
 				<InnerBlocks.Content />
 			</div>
 		);
