@@ -23,6 +23,10 @@ class Spoiler_Alert {
 	 * Register editor blocks.
 	 */
 	public static function register_blocks() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		wp_register_script(
 			'spoiler-alert',
 			plugins_url( 'dist/index.js', SPOILER_ALERT_PLUGIN_FILE ),
