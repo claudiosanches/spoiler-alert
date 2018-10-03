@@ -3,42 +3,46 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/spoiler-alert.js:14
+#: src/blocks/spoiler-alert.js:109
+msgid "Click to reveal"
+msgstr ""
+
+#: src/blocks/spoiler-alert.js:40
 msgid "Spoiler"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:15
+#: src/blocks/spoiler-alert.js:41
 msgid "Mild Spoiler"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:16
+#: src/blocks/spoiler-alert.js:42
 msgid "Moderated Spoiler"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:17
+#: src/blocks/spoiler-alert.js:43
 msgid "Insane Spoiler"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:60
+#: src/blocks/spoiler-alert.js:73
 msgid "Spoiler Alert"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:63
+#: src/blocks/spoiler-alert.js:76
 msgid "None"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:64
+#: src/blocks/spoiler-alert.js:77
 msgid "Mild"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:65
+#: src/blocks/spoiler-alert.js:78
 msgid "Moderate"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:66
+#: src/blocks/spoiler-alert.js:79
 msgid "Insane"
 msgstr ""
 
-#: src/blocks/spoiler-alert.js:91
-msgid "Click to reveal"
+#: src/blocks/spoiler-alert.js:84
+msgid "Alert text"
 msgstr ""

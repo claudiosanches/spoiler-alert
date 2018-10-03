@@ -19,5 +19,8 @@
 		"@wordpress/babel-preset-default": "^2.1.0",
 		"eslint": "^5.6.1",
 		"parcel-bundler": "^1.10.1"
+	},
+	"dependencies": {
+		"@babel/runtime-corejs2": "^7.1.2"
 	}
 }

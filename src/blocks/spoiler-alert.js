@@ -5,22 +5,6 @@ const { SelectControl, TextControl } = wp.components;
 const { __ } = wp.i18n;
 
 /**
- * Default alert text.
- *
- * @param {String} type Alert type;
- */
-function getDefaultAlertText( type ) {
-	let message = {
-		none: __( 'Spoiler' ),
-		mild: __( 'Mild Spoiler' ),
-		moderate: __( 'Moderated Spoiler' ),
-		insane: __( 'Insane Spoiler' )
-	};
-
-	return message[ type ];
-}
-
-/**
  * Spoiler alert block.
  */
 registerBlockType( 'spoiler-alert/spoiler-alert', {
@@ -35,7 +19,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 		},
 		alertText: {
 			type: 'string',
-			default: ' '
+			default: ''
 		}
     },
 
@@ -52,11 +36,30 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 		 * @param {String} newType New type value.
 		 */
         function updateStatusAttribute( newType ) {
+			let defaultAlerts = {
+				none: __( 'Spoiler' ),
+				mild: __( 'Mild Spoiler' ),
+				moderate: __( 'Moderated Spoiler' ),
+				insane: __( 'Insane Spoiler' )
+			};
+
             props.setAttributes({
                 type: newType
-            });
+			});
+
+			// Update alertText with default values.
+			if ( '' === props.attributes.alertText || Object.values( defaultAlerts ).includes( props.attributes.alertText ) ) {
+				props.setAttributes({
+					alertText: defaultAlerts[ newType ]
+				});
+			}
 		}
 
+		/**
+		 * Update alert text.
+		 *
+		 * @param {String} newText
+		 */
 		function updateAlertTextAttribute( newText ) {
 			props.setAttributes({
 				alertText: newText
@@ -101,7 +104,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	save( props ) {
 		return (
 			<div className={ 'spoiler-alert is-' + props.attributes.type }>
-				<p className='spoiler-alert__message'><span>{ getDefaultAlertText( props.attributes.type ) }</span></p>
+				<p className='spoiler-alert__message'><span>{ props.attributes.alertText }</span></p>
 				<p className='spoiler-alert__expander'>
 					<button>{ __( 'Click to reveal' ) }</button>
 				</p>
