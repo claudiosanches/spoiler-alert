@@ -1,15 +1,15 @@
 const { createElement } = wp.element;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { SelectControl } = wp.components;
+const { SelectControl, TextControl } = wp.components;
 const { __ } = wp.i18n;
 
 /**
- * Alert type.
+ * Default alert text.
  *
  * @param {String} type Alert type;
  */
-function getAlertText( type ) {
+function getDefaultAlertText( type ) {
 	let message = {
 		none: __( 'Spoiler' ),
 		mild: __( 'Mild Spoiler' ),
@@ -32,7 +32,11 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
         type: {
             type: 'string',
             default: 'none'
-        }
+		},
+		alertText: {
+			type: 'string',
+			default: ' '
+		}
     },
 
 	/**
@@ -51,7 +55,13 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
             props.setAttributes({
                 type: newType
             });
-        }
+		}
+
+		function updateAlertTextAttribute( newText ) {
+			props.setAttributes({
+				alertText: newText
+			});
+		}
 
 		return (
             <div>
@@ -65,11 +75,16 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 							{ label: __( 'Moderate' ), value: 'moderate' },
 							{ label: __( 'Insane' ), value: 'insane' }
                         ]}
-                        onChange = { updateStatusAttribute }
+                        onChange={ updateStatusAttribute }
                     />
+					<TextControl
+						label={ __( 'Alert text' ) }
+						value={ props.attributes.alertText }
+						onChange={ updateAlertTextAttribute }
+					/>
                 </InspectorControls>
 				<div className={ 'spoiler-alert is-' + props.attributes.type }>
-					<p className='spoiler-alert__message'><span>{ getAlertText( props.attributes.type ) }</span></p>
+					<p className='spoiler-alert__message'><span>{ props.attributes.alertText }</span></p>
 					<div className='spoiler-alert__content'>
 						<InnerBlocks allowedBlocks={ [ 'core/image', 'core/paragraph' ] } />
 					</div>
@@ -86,7 +101,7 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	save( props ) {
 		return (
 			<div className={ 'spoiler-alert is-' + props.attributes.type }>
-				<p className='spoiler-alert__message'><span>{ getAlertText( props.attributes.type ) }</span></p>
+				<p className='spoiler-alert__message'><span>{ getDefaultAlertText( props.attributes.type ) }</span></p>
 				<p className='spoiler-alert__expander'>
 					<button>{ __( 'Click to reveal' ) }</button>
 				</p>
