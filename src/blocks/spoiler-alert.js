@@ -37,7 +37,6 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 		 */
         function updateStatusAttribute( newType ) {
 			let defaultAlerts = {
-				none: __( 'Spoiler' ),
 				mild: __( 'Mild Spoiler' ),
 				moderate: __( 'Moderated Spoiler' ),
 				insane: __( 'Insane Spoiler' )
@@ -73,7 +72,6 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
                         label={ __( 'Spoiler Alert' ) }
                         value={ props.attributes.type }
                         options={[
-							{ label: __( 'None' ), value: 'none' },
 							{ label: __( 'Mild' ), value: 'mild' },
 							{ label: __( 'Moderate' ), value: 'moderate' },
 							{ label: __( 'Insane' ), value: 'insane' }
