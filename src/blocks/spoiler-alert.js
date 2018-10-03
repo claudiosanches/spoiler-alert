@@ -15,11 +15,11 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
     attributes: {
         type: {
             type: 'string',
-            default: 'none'
+            default: 'mild'
 		},
 		alertText: {
 			type: 'string',
-			default: ''
+			default: __( 'Mild Spoiler' )
 		}
     },
 
