@@ -41,13 +41,18 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 				moderate: __( 'Moderated Spoiler' ),
 				insane: __( 'Insane Spoiler' )
 			};
+			let alertMessages = Object.values( defaultAlerts );
 
             props.setAttributes({
                 type: newType
 			});
 
 			// Update alertText with default values.
-			if ( '' === props.attributes.alertText || Object.values( defaultAlerts ).includes( props.attributes.alertText ) ) {
+			if (
+				'' === props.attributes.alertText
+				||
+				alertMessages.includes( props.attributes.alertText ) )
+			{
 				props.setAttributes({
 					alertText: defaultAlerts[ newType ]
 				});
@@ -85,9 +90,19 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 					/>
                 </InspectorControls>
 				<div className={ 'spoiler-alert is-' + props.attributes.type }>
-					<p className='spoiler-alert__message'><span>{ props.attributes.alertText }</span></p>
+					<p className='spoiler-alert__message'>
+						<span>{ props.attributes.alertText }</span>
+					</p>
 					<div className='spoiler-alert__content'>
-						<InnerBlocks allowedBlocks={ [ 'core/image', 'core/paragraph' ] } />
+						<InnerBlocks
+							allowedBlocks={ [
+								'core/image',
+								'core/paragraph',
+								'core/quote',
+								'core/list',
+								'core/video'
+							] }
+						/>
 					</div>
 				</div>
             </div>
@@ -102,7 +117,9 @@ registerBlockType( 'spoiler-alert/spoiler-alert', {
 	save( props ) {
 		return (
 			<div className={ 'spoiler-alert is-' + props.attributes.type }>
-				<p className='spoiler-alert__message'><span>{ props.attributes.alertText }</span></p>
+				<p className='spoiler-alert__message'>
+					<span>{ props.attributes.alertText }</span>
+				</p>
 				<p className='spoiler-alert__expander'>
 					<button>{ __( 'Click to reveal' ) }</button>
 				</p>
