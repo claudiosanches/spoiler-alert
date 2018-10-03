@@ -2,6 +2,10 @@
 	display: none;
 }
 
+.spoiler-alert__message {
+	min-height: 40px;
+}
+
 .spoiler-alert__message span {
 	display: block;
 	padding: 6px 0 0 45px;
